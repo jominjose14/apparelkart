@@ -5,6 +5,7 @@ import pandas as pd
 import engine
 
 IS_DEV = False
+HOST = '127.0.0.1' if IS_DEV else '0.0.0.0'
 PORT = os.getenv('PORT', '5000')
 MODEL = os.getenv('MODEL', 'bow')
 API_PREFIX = '/api'
@@ -71,4 +72,4 @@ def get_product(asin_code):
     }
 
 if __name__ == '__main__':
-    app.run(debug=IS_DEV, port=PORT)
+    app.run(debug=IS_DEV, port=PORT, host=HOST)
