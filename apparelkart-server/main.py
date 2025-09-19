@@ -1,8 +1,12 @@
 from flask import Flask, send_from_directory
 # from flask_cors import CORS
+import os
 import pandas as pd
 import engine
 
+IS_DEV = False
+PORT = os.getenv('PORT', '5000')
+MODEL = os.getenv('MODEL', 'bow')
 API_PREFIX = '/api'
 PRODUCTS_PER_REQUEST = 100
 RECOMMEND_COUNT = 5
@@ -48,7 +52,13 @@ def get_product(asin_code):
     
     product = rows.iloc[0].to_dict()
     index = rows.index.tolist()[0]
-    recommended_indices = engine.bow_model(index, RECOMMEND_COUNT)
+    recommended_indices = None
+    if MODEL == 'bow':
+        recommended_indices = engine.bow_model(index, RECOMMEND_COUNT)
+    elif MODEL == 'tfidf':
+        recommended_indices = engine.tfidf_model(index, RECOMMEND_COUNT)
+    else:
+        recommended_indices = engine.bow_model(index, RECOMMEND_COUNT)
     recommended_products = df.loc[recommended_indices].to_dict(orient='records')
     
     return {
@@ -61,4 +71,4 @@ def get_product(asin_code):
     }
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=IS_DEV, port=PORT)
