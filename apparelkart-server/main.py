@@ -1,16 +1,25 @@
-from flask import Flask
-from flask_cors import CORS
+from flask import Flask, send_from_directory
+# from flask_cors import CORS
 import pandas as pd
 import engine
 
 API_PREFIX = '/api'
 PRODUCTS_PER_REQUEST = 100
 RECOMMEND_COUNT = 5
+
 df = pd.read_pickle('pickles/stg2_dedupe')
 df = df.reset_index(drop=True)
 
-app = Flask(__name__)
-CORS(app, resources={rf'{API_PREFIX}/*': {"origins": "http://127.0.0.1:5173"}})
+app = Flask(__name__, static_folder='./static', static_url_path='/')
+# CORS(app, resources={rf'{API_PREFIX}/*': {"origins": "http://127.0.0.1:5173"}})
+
+@app.route('/')
+def get_index_page():
+    return send_from_directory(app.static_folder, 'index.html')
+
+@app.route('/product')
+def get_product_page():
+    return send_from_directory(app.static_folder, 'index.html')
 
 @app.route(f'{API_PREFIX}/')
 def get_root():

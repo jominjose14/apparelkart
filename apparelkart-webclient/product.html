@@ -12,16 +12,16 @@
           <div>ApparelKart</div>
         </header>
         <main class="px-3 md:px-10 lg:px-16 pb-16">
-          <div class="main-product w-3/4 flex flex-row gap-16 justify-center items-center mt-12 mb-10 mx-auto text-md p-8 border-2 border-gray-200 rounded-xl">
+          <div class="main-product w-31/32 lg:w-3/4 flex flex-col lg:flex-row gap-16 justify-center items-center mt-12 mb-10 mx-auto text-md p-8 border-2 border-gray-200 rounded-xl">
             <div class="flex-2">
               <img src="favicon.svg" alt="main product" height="200px" width="170px" class="block h-48 w-38 md:h-50 md:w-42 lg:h-56 lg:w-45 mx-auto">
             </div>
-            <div class="flex-3 grid grid-cols-[2fr_5fr] text-lg">
+            <div class="flex-3 grid grid-cols-[1fr_1fr] w-7/8 lg:w-full lg:grid-cols-[2fr_5fr] text-lg">
               <p class="text-gray-700">Name</p>
               <p class="product-name max-w-2/3">Complete long untruncated product title</p>
               <p class="text-gray-700">Price</p>
               <p class="product-price">$49.99</p>
-              <p class="text-gray-700">ASIN Code</p>
+              <p class="text-gray-700">ASIN</p>
               <p class="product-asin">B0741FQBDN</p>
               <p class="text-gray-700">Brand</p>
               <p class="product-brand">Vogue</p>
@@ -31,7 +31,7 @@
               <p class="product-color">Magenta</p>
             </div>
           </div>
-          <p class="text-center text-xl">You may also like</p>
+          <p class="text-center text-xl font-semibold">You may also like</p>
           <div class="flex gap-3 text-2xl justify-center text-gray-200 mt-4 mb-6">
             <span>&#9679;</span>
             <span>&#9679;</span>
@@ -39,6 +39,9 @@
           </div>
           <div id="product-grid" class="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-5 gap-x-4 gap-y-4 sm:gap-x-8 sm:gap-y-8 justify-items-center justify-center"></div>
         </main>
+        <div id="loading-overlay" class="hidden fixed inset-0 grid place-items-center z-[99999] backdrop-blur-xs">
+          <img src="spinner.svg" alt="spinner" height="10vw" width="10vw" class="size-10">
+        </div>
         <template id="product-card-template">
             <a href="product.html?asin=B0759XSMDG" class="product-card block p-4 border border-gray-200 shadow-lg rounded-lg space-y-2 cursor-pointer hover:scale-103 transition">
                 <img src="favicon.svg" alt="product image" height="100px" width="75px" class="block h-48 w-38 md:h-50 md:w-42 lg:h-56 lg:w-45 mx-auto" />
