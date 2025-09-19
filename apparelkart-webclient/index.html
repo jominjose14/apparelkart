@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>ApparelKart</title>
+    </head>
+    <body class="text-md">
+        <header class="flex gap-4 p-7 text-2xl font-semibold shadow-md">
+          <img src="favicon.svg" alt="brand icon">
+          <div>ApparelKart</div>
+        </header>
+        <main class="px-3 md:px-10 lg:px-16 pb-16">
+          <div class="flex gap-4 w-15/16 md:w-5/6 lg:w-5/6 xl:w-1/2 mx-auto my-12 border-2 border-gray-200 rounded-full text-md p-3 px-5 focus-within:outline-1">
+            <img src="search.svg" alt="search" height="100px" width="100px" class="size-8">
+            <input type="text" id="product-search-input" placeholder="Search for a product" class="w-full outline-none" />
+          </div>
+          <div id="product-grid" class="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-5 gap-x-4 gap-y-4 sm:gap-x-8 sm:gap-y-8 justify-items-center justify-center"></div>
+        </main>
+        <template id="product-card-template">
+            <a href="product.html?asin=B0759XSMDG" class="product-card block p-4 border border-gray-200 shadow-lg rounded-lg space-y-2 cursor-pointer hover:scale-103 transition">
+                <img src="favicon.svg" alt="product image" height="100px" width="75px" class="block h-48 w-38 md:h-50 md:w-42 lg:h-56 lg:w-45 mx-auto" />
+                <p class="text-center line-clamp-1">Product Name</p>
+            </a>
+        </template>
+        <script type="module" src="/src/index.ts"></script>
+    </body>
+</html>
