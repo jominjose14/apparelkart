@@ -1,11 +1,13 @@
 import './style.css';
 import { getProducts } from './requests';
 import type { Product } from './types';
+import { setFavicon } from './utils';
 
 // state
 let products: Product[] = [];
 
 document.addEventListener("DOMContentLoaded", () => {
+    setFavicon();
     populateDummyProducts();
     const searchInput: HTMLInputElement | null = document.getElementById("product-search-input") as HTMLInputElement;
     if (searchInput) searchInput.addEventListener('input', onSearchInputChange);

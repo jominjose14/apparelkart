@@ -1,8 +1,10 @@
 import './style.css';
 import { getProduct } from './requests';
 import type { ProductApiResponsePayload } from './types';
+import { setFavicon } from './utils';
 
 document.addEventListener("DOMContentLoaded", () => {
+    setFavicon();
     renderDummyProducts();
     fetchProduct();
 });

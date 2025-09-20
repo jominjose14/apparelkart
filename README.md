@@ -1,8 +1,7 @@
 # ApparelKart
-
 Ecommerce recommendation engine built from scratch
-
-Tech
+<br><br>
+### Tech
 - Machine Learning Techniques
     - Bag of Words (BoW)
     - TF-IDF
